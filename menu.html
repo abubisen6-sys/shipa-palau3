@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shipa Palau – Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      :root {
+        --bg-color: #1a2e28;
+        --text-color: #e8e4d9;
+        --muted-color: #8a9a94;
+        --primary: #d4a553;
+        --border-color: #2d453e;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Raleway", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      h1, h2, h3 { font-family: "Playfair Display", serif; }
+
+      .site-header {
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.25rem 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .site-header {
+          padding: 1.5rem 3rem;
+        }
+      }
+
+      .brand-logo {
+        height: 52px;
+        width: auto;
+      }
+
+      .home-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border: 1px solid rgba(212, 165, 83, 0.4);
+        border-radius: 4px;
+        color: var(--primary);
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .home-link:hover {
+        background-color: rgba(212, 165, 83, 0.1);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .home-icon {
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .btn-outline-gold,
+      .btn-gold {
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        padding: 0.5rem 1.6rem;
+      }
+
+      .btn-outline-gold {
+        border: 1px solid rgba(212, 165, 83, 0.6);
+        color: var(--primary);
+      }
+
+      .btn-outline-gold:hover {
+        background-color: var(--primary);
+        color: #000;
+      }
+
+      .btn-gold {
+        background-color: var(--primary);
+        color: #000;
+        border: none;
+      }
+
+      .btn-gold:hover {
+        background-color: #e1b465;
+        color: #000;
+      }
+
+      .divider-gold {
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(212, 165, 83, 0.9),
+          transparent
+        );
+      }
+
+      .text-gold-gradient {
+        background: linear-gradient(135deg, #d4a553, #e8d4a0);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .subtitle {
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-size: 0.7rem;
+        color: var(--muted-color);
+      }
+
+      .menu-shell {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      @media (min-width: 768px) {
+        .menu-shell {
+          padding-top: 4.5rem;
+          padding-bottom: 4.5rem;
+        }
+        .menu-item-img {
+          width: 140px;
+          height: 140px;
+        }
+        .menu-item-title {
+          font-size: 1.30rem;
+        }
+        .menu-item-desc {
+          font-size: 1.05rem;
+        }
+      }
+
+      .nav-pills .nav-link {
+        border-radius: 0;
+        color: var(--muted-color);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.75rem;
+      }
+
+      .nav-pills .nav-link.active {
+        background-color: var(--primary);
+        color: #000;
+      }
+
+      .menu-item-row {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 1.25rem 0;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .menu-item-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        object-fit: cover;
+        flex-shrink: 0;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      }
+
+      .menu-item-title {
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .menu-item-desc {
+        font-size: 0.95rem;
+        color: var(--muted-color);
+      }
+
+      .menu-item-price {
+        font-weight: 600;
+        color: var(--primary);
+        font-size: 1.25rem;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 575.98px) {
+        .menu-item-row {
+          align-items: flex-start;
+          gap: 1rem;
+          padding: 1rem 0;
+        }
+        .menu-item-img {
+          width: 120px;
+          height: 120px;
+        }
+        .menu-item-title {
+          font-size: 1.15rem;
+          line-height: 1.2;
+        }
+        .menu-item-desc {
+          font-size: 0.95rem;
+          line-height: 1.45;
+        }
+        .menu-item-price {
+          order: 3;
+          width: 100%;
+          margin-top: 0.25rem;
+          font-size: 1.2rem;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Page transition animations */
+      .page-transition-ready {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .page-enter {
+        opacity: 1;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+
+      .page-exit {
+        opacity: 0;
+        animation: fadeOut 0.3s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+      }
+
+      .lang-switcher {
+        display: inline-flex;
+        gap: 0.25rem;
+        user-select: none;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .lang-btn {
+        border: 1px solid rgba(232, 228, 217, 0.3);
+        background: transparent;
+        color: var(--muted-color);
+        padding: 0.1rem 0.4rem;
+        font: inherit;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      }
+
+      .lang-btn.active {
+        background-color: var(--primary);
+        color: #1a2e28;
+        border-color: var(--primary);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="home-link" aria-label="Home">
+          <svg class="home-icon" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </a>
+        <div class="d-flex align-items-center gap-3">
+          <div class="lang-switcher subtitle">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="kz">KZ</button>
+          </div>
+          <a href="contact.html" class="btn btn-outline-gold" data-translate="about"></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Menu content -->
+    <main class="menu-shell">
+      <h1 class="text-center text-gold-gradient fw-bold"
+          style="font-size: clamp(2.3rem, 4vw, 3rem);"
+          data-translate="ourMenu">
+        Our Menu
+      </h1>
+      <div class="divider-gold mx-auto mt-3 mb-4" style="width: 96px"></div>
+
+      <!-- Category pills -->
+      <ul
+        class="nav nav-pills justify-content-center border border-secondary py-1 px-1 mt-3"
+        id="menuTabs"
+        role="tablist"
+      >
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="menu-main-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#menu-main"
+            type="button"
+            role="tab"
+            aria-selected="true"
+          >
+            <span data-translate="menu">Menu</span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="menu-bar-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#menu-bar"
+            type="button"
+            role="tab"
+            aria-selected="false"
+          >
+            <span data-translate="barMenu">Bar Menu</span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="menu-desserts-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#menu-desserts"
+            type="button"
+            role="tab"
+            aria-selected="false"
+          >
+            <span data-translate="salad">Salad</span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content mt-4" id="menuTabsContent">
+        <!-- Main menu -->
+        <div
+          class="tab-pane fade show active"
+          id="menu-main"
+          role="tabpanel"
+          aria-labelledby="menu-main-tab"
+        >
+          <h3 class="subtitle mt-4" data-translate="mainFoods">Main Foods</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/shipa_palau.jpg"  class="menu-item-img" alt="Шипа палау" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Шипа палау">Шипа палау</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Күріш, Сары сәбіз, Шипа майы">Жылқы еті, Күріш, Сары сәбіз, Шипа майы</div>
+            </div>
+            <div class="menu-item-price">2150 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/qazzyyy.png" class="menu-item-img" alt="Қазы палау" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қазы палау">Қазы палау</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Қазы, Күріш, Сары сәбіз, Шипа майы">Жылқы еті, Қазы, Күріш, Сары сәбіз, Шипа майы</div>
+            </div>
+            <div class="menu-item-price">2700 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/sube_palau.jpeg" class="menu-item-img" alt="Сүбе палау" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Сүбе палау">Сүбе палау</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Сүбе, Күріш, Сары сәбіз, Шипа майы">Жылқы еті, Сүбе, Күріш, Сары сәбіз, Шипа майы</div>
+            </div>
+            <div class="menu-item-price">2900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/mix_palau.jpeg" class="menu-item-img" alt="Қазы+сүбе палау" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қазы+сүбе палау">Қазы+сүбе палау</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Қазы, Сүбе, Күріш, Сары сәбіз, Шипа майы">Жылқы еті, Қазы, Сүбе, Күріш, Сары сәбіз, Шипа майы</div>
+            </div>
+            <div class="menu-item-price">3450 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/guirulagman.webp" class="menu-item-img" alt="Лағман гуйру" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Лағман гуйру">Лағман гуйру</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Лағман қамыры, Түрлі түсті болгар бұрышы, Пекин орамжапырағы, Сельдерей, Сарымсақ, Дәмдеуіштер">Жылқы еті, Лағман қамыры, Түрлі түсті болгар бұрышы, Пекин орамжапырағы, Сельдерей, Сарымсақ, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">2150 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ts.jpg" class="menu-item-img" alt="Лағман цомян" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Лағман цомян">Лағман цомян</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Лағман қамыры, Түрлі түсті болгар бұрышы, Пекин орамжапырағы, Сельдерей, Сарымсақ, Дәмдеуіштер">Жылқы еті, Лағман қамыры, Түрлі түсті болгар бұрышы, Пекин орамжапырағы, Сельдерей, Сарымсақ, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">2200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/balgynbek.webp" class="menu-item-img" alt="Балғын қуырдақ" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Балғын қуырдақ">Балғын қуырдақ</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Картоп, Жуа, Сливки, Дәмдеуіштер">Жылқы еті, Картоп, Жуа, Сливки, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">3700 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/bal_kuyrdak.webp" class="menu-item-img" alt="Бал қуырдақ" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Бал қуырдақ">Бал қуырдақ</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Картоп, Пияз, Дәмдеуіштер">Жылқы еті, Картоп, Пияз, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">3700 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/beshbarmaq.webp" class="menu-item-img" alt="Бешбармақ" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Бешбармақ">Бешбармақ</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Қазы, Картоп, Сәбіз, Пияз, Көк пияз, Сорпа, Қолдан жайылған қамыр">Жылқы еті, Қазы, Картоп, Сәбіз, Пияз, Көк пияз, Сорпа, Қолдан жайылған қамыр</div>
+            </div>
+            <div class="menu-item-price">2900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/manty.webp" class="menu-item-img" alt="Манты" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Манты">Манты</div>
+              <div class="menu-item-desc" data-menu-desc="Туралған жылқы еті, Пияз, Қаймақ">Туралған жылқы еті, Пияз, Қаймақ</div>
+            </div>
+            <div class="menu-item-price">2040 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/qazankebab.webp" class="menu-item-img" alt="Қазан кебаб" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қазан кебаб">Қазан кебаб</div>
+              <div class="menu-item-desc" data-menu-desc="Қой еті, Картоп, Дәмдеуіштер">Қой еті, Картоп, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">3750 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/4I4A0056.JPG" class="menu-item-img" alt="Балық" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Балық">Балық</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">2500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/dolma.png" class="menu-item-img" alt="Долма" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Долма">Долма</div>
+              <div class="menu-item-desc" data-menu-desc="Тартылған ет, Жүзім жапырағы, Дәмдеуіштер">Тартылған ет, Жүзім жапырағы, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">1800 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/nan_salma.png" class="menu-item-img" alt="Нан салма" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Нан салма">Нан салма</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Картоп, Сәбіз, Қолдан жайылған қамыр, Бөдене жұмыртқасы, Көк пияз">Жылқы еті, Картоп, Сәбіз, Қолдан жайылған қамыр, Бөдене жұмыртқасы, Көк пияз</div>
+            </div>
+            <div class="menu-item-price">3100 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="soups">Soups</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ramen.png" class="menu-item-img" alt="Рамен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Рамен">Рамен</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Лағман қамыры, Сыр, Жұмыртқа, Дәмдеуіштер">Жылқы еті, Лағман қамыры, Сыр, Жұмыртқа, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">1990 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/clay.png" class="menu-item-img" alt="Кілегейлі рамен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Кілегейлі рамен">Кілегейлі рамен</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Лағман қамыры, Сыр, Жұмыртқа, Кілегей, Дәмдеуіштер">Жылқы еті, Лағман қамыры, Сыр, Жұмыртқа, Кілегей, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">2200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/LAMBSOUP.png" class="menu-item-img" alt="Қой сорпа" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қой сорпа">Қой сорпа</div>
+              <div class="menu-item-desc" data-menu-desc="Қой еті, Картоп, Сәбіз, Көк пияз, Укроп">Қой еті, Картоп, Сәбіз, Көк пияз, Укроп</div>
+            </div>
+            <div class="menu-item-price">2300 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/noxat.png" class="menu-item-img" alt="Нохат сорпа" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Нохат сорпа">Нохат сорпа</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Қазы, Тіл, Нохат">Жылқы еті, Қазы, Тіл, Нохат</div>
+            </div>
+            <div class="menu-item-price">2200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/kokenis.png" class="menu-item-img" alt="Көкөніс сорпа" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Көкөніс сорпа">Көкөніс сорпа</div>
+              <div class="menu-item-desc" data-menu-desc="Картоп, Сәбіз, Брокколи, Түрлі түсті болгар бұрышы, Сарымсақ, Кабачок">Картоп, Сәбіз, Брокколи, Түрлі түсті болгар бұрышы, Сарымсақ, Кабачок</div>
+            </div>
+            <div class="menu-item-price">1200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/kespe_kozhe.png" class="menu-item-img" alt="Кеспе көже" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Кеспе көже">Кеспе көже</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Кеспе, Картоп, Сәбіз, Пияз, Қызанақ">Жылқы еті, Кеспе, Картоп, Сәбіз, Пияз, Қызанақ</div>
+            </div>
+            <div class="menu-item-price">1950 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tush.png" class="menu-item-img" alt="Түшпара сорпа" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Түшпара сорпа">Түшпара сорпа</div>
+              <div class="menu-item-desc" data-menu-desc="Туралған жылқы еті, Пияз, Көк пияз, Дәмдеуіштер">Тураланған жылқы еті, Пияз, Көк пияз, Дәмдеуіштер</div>
+            </div>
+            <div class="menu-item-price">1900 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="pizzas">Pizzas</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/sipapizzzas.JPG" class="menu-item-img" alt="Шипа" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Шипа">Шипа</div>
+              <div class="menu-item-desc" data-menu-desc="Қазы, Сыр">Қазы, Сыр</div>
+            </div>
+            <div class="menu-item-price">3500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/pepperonni.png" class="menu-item-img" alt="Пеперони" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Пеперони">Пеперони</div>
+              <div class="menu-item-desc" data-menu-desc="Шұжық, Сыр">Шұжық, Сыр</div>
+            </div>
+            <div class="menu-item-price">2600 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/margaretta.png" class="menu-item-img" alt="Маргарита" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Маргарита">Маргарита</div>
+              <div class="menu-item-desc" data-menu-desc="Қызанақ, Сыр">Қызанақ, Сыр</div>
+            </div>
+            <div class="menu-item-price">2500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/balla.png" class="menu-item-img" alt="Болонеза" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Болонеза">Болонеза</div>
+              <div class="menu-item-desc" data-menu-desc="Тартылған ет, Сыр">Тартылған ет, Сыр</div>
+            </div>
+            <div class="menu-item-price">2800 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/4c.png" class="menu-item-img" alt="4 мезгіл" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="4 мезгіл">4 мезгіл</div>
+              <div class="menu-item-desc" data-menu-desc="Шұжық, Қызанақ, Тауық еті, Саңырауқұлақ, Сыр">Шұжық, Қызанақ, Тауық еті, Саңырауқұлақ, Сыр</div>
+            </div>
+            <div class="menu-item-price">2990 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="sideDishes">Side Dishes</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/fryyyy.png" class="menu-item-img" alt="Картоп фри" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Картоп фри">Картоп фри</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">850 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/nagetsy.png" class="menu-item-img" alt="Наггетстер" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Наггетстер">Наггетстер</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">950 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="platters">Platters</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/fruits.png" class="menu-item-img" alt="Кесілген жемістер" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Кесілген жемістер">Кесілген жемістер</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">4500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/meat.png" class="menu-item-img" alt="Ет ассорти" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Ет ассорти">Ет ассорти</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">4500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/vrget.png" class="menu-item-img" alt="Тұзды ассорти" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Тұзды ассорти">Тұзды ассорти</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">2700 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="breads">Breads</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/samsa_meat.png" class="menu-item-img" alt="Самса етпен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Самса етпен">Самса етпен</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">400 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/qabaq.png" class="menu-item-img" alt="Самса асқабақпен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Самса асқабақпен">Самса асқабақпен</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">350 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/chehl.png" class="menu-item-img" alt="Өрме нан" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Өрме нан">Өрме нан</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/bread.png" class="menu-item-img" alt="Нан" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Нан">Нан</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/black.png" class="menu-item-img" alt="Қара нан" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қара нан">Қара нан</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/piaz.png" class="menu-item-img" alt="Қаттама пиязбен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қаттама пиязбен">Қаттама пиязбен</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">650 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/sheker.png" class="menu-item-img" alt="Қаттама шекермен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қаттама шекермен">Қаттама шекермен</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">650 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tushhhh.png" class="menu-item-img" alt="Қуырылған түшпара" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қуырылған түшпара">Қуырылған түшпара</div>
+              <div class="menu-item-desc" data-menu-desc="9 дана — 950 тг · 0,5 кг — 1900 тг · 1 кг — 3800 тг">9 дана — 950 тг · 0,5 кг — 1900 тг · 1 кг — 3800 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/bauyrsaq.png" class="menu-item-img" alt="Бауырсақ" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Бауырсақ">Бауырсақ</div>
+              <div class="menu-item-desc" data-menu-desc="5 дана — 650 тг · 1 кг — 1650 тг">5 дана — 650 тг · 1 кг — 1650 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/Shep.png" class="menu-item-img" alt="Чебуреки (2 дана)" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Чебуреки (2 дана)">Чебуреки (2 дана)</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">500 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="sets">Sets</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/samsa_sebet6.png" class="menu-item-img" alt="Самса себет" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Самса себет">Самса себет</div>
+              <div class="menu-item-desc" data-menu-desc="Самса етпен 3 дана, Самса асқабақпен 3 дана, Чебуреки 2 дана">Самса етпен 3 дана, Самса асқабақпен 3 дана, Чебуреки 2 дана</div>
+            </div>
+            <div class="menu-item-price">3000 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/nan_sebet.png" class="menu-item-img" alt="Нан себет" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Нан себет">Нан себет</div>
+              <div class="menu-item-desc" data-menu-desc="Қаттама пиязбен, Қаттама шекермен, Өрме нан 2 дана, Бауырсақ 5 дана, Қуырылған түшпара 9 дана, Қара және ақ нан">Қаттама пиязбен, Қаттама шекермен, Өрме нан 2 дана, Бауырсақ 5 дана, Қуырылған түшпара 9 дана, Қара және ақ нан</div>
+            </div>
+            <div class="menu-item-price">3700 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/beshbarmaq.webp" class="menu-item-img" alt="Бешбармақ (5 адам)" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Бешбармақ (5 адам)">Бешбармақ (5 адам)</div>
+              <div class="menu-item-desc" data-menu-desc="Қамыр, Жылқы еті, Жая, Қазы, Картоп, Сәбіз">Қамыр, Жылқы еті, Жая, Қазы, Картоп, Сәбіз</div>
+            </div>
+            <div class="menu-item-price">21000 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/beshbarmaq.webp" class="menu-item-img" alt="Бешбармақ қабырғамен (8 адам)" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Бешбармақ қабырғамен (8 адам)">Бешбармақ қабырғамен (8 адам)</div>
+              <div class="menu-item-desc" data-menu-desc="Қамыр, Жылқы еті, Қабырға, Қазы, Картоп, Сәбіз">Қамыр, Жылқы еті, Қабырға, Қазы, Картоп, Сәбіз</div>
+            </div>
+            <div class="menu-item-price">25000 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/bal_kuyrdak.webp" class="menu-item-img" alt="Қуырдақ (5 адам)" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қуырдақ (5 адам)">Қуырдақ (5 адам)</div>
+              <div class="menu-item-desc" data-menu-desc="Қой еті қабырғасымен, Картоп, Пияз">Қой еті қабырғасымен, Картоп, Пияз</div>
+            </div>
+            <div class="menu-item-price">19000 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/apa_sebet.png" class="menu-item-img" alt="Әжемнің асқабағы (8 адам)" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Әжемнің асқабағы (8 адам)">Әжемнің асқабағы (8 адам)</div>
+              <div class="menu-item-desc" data-menu-desc="Асқабақ, Жылқы еті, Сыр, Кілегей">Асқабақ, Жылқы еті, Сыр, Кілегей</div>
+            </div>
+            <div class="menu-item-price">21000 тг</div>
+          </div>
+        </div>
+
+        <!-- Bar menu -->
+        <div
+          class="tab-pane fade"
+          id="menu-bar"
+          role="tabpanel"
+          aria-labelledby="menu-bar-tab"
+        >
+          <h3 class="subtitle mt-2" data-translate="teas">Teas</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea.png" class="menu-item-img" alt="Шипа шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Шипа шәй">Шипа шәй</div>
+              <div class="menu-item-desc" data-menu-desc="Итмұрын, Алма, Апельсин, Лимон, Жалбыз, Қалампыр, Жасмин шәй, Бадьян, Бал, Зімбір">Итмұрын, Алма, Апельсин, Лимон, Жалбыз, Қалампыр, Жасмин шәй, Бадьян, Бал, Зімбір</div>
+            </div>
+            <div class="menu-item-price">1600 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea2.png" class="menu-item-img" alt="Түркістан шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Түркістан шәй">Түркістан шәй</div>
+              <div class="menu-item-desc" data-menu-desc="Қара шәй, Көк шәй, Лимон, Апельсин, Жалбыз, Нават">Қара шәй, Көк шәй, Лимон, Апельсин, Жалбыз, Нават</div>
+            </div>
+            <div class="menu-item-price">1200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea3.png" class="menu-item-img" alt="Жидекті шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Жидекті шәй">Жидекті шәй</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea_milk.png" class="menu-item-img" alt="Сүтті шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Сүтті шәй">Сүтті шәй</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea2.png" class="menu-item-img" alt="Қара шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қара шәй">Қара шәй</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">450 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea4.png" class="menu-item-img" alt="Көк шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Көк шәй">Көк шәй</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">450 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea.png" class="menu-item-img" alt="Жемісті шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Жемісті шәй">Жемісті шәй</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea_orange.png" class="menu-item-img" alt="Апельсинді шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Апельсинді шәй">Апельсинді шәй</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea_lemoo.png" class="menu-item-img" alt="Зімбір-лимон шәйі" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Зімбір-лимон шәйі">Зімбір-лимон шәйі</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1400 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea2.png" class="menu-item-img" alt="Теңіз шырғанағы шәйі" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Теңіз шырғанағы шәйі">Теңіз шырғанағы шәйі</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea3.png" class="menu-item-img" alt="Марокко шәйі" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Марокко шәйі">Марокко шәйі</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1600 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea_apple.png" class="menu-item-img" alt="Алмалы шәй" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Алмалы шәй">Алмалы шәй</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea2.png" class="menu-item-img" alt="Қара шәй стаканмен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қара шәй стаканмен">Қара шәй стаканмен</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea4.png" class="menu-item-img" alt="Көк шәй стаканмен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Көк шәй стаканмен">Көк шәй стаканмен</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tea_milk.png" class="menu-item-img" alt="Сүт шәй стаканмен" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Сүт шәй стаканмен">Сүт шәй стаканмен</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">250 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="lemonades">Lemonades</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/mojt.png" class="menu-item-img" alt="Мохито" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Мохито">Мохито</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/qiwi.png" class="menu-item-img" alt="Киви-лайм" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Киви-лайм">Киви-лайм</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/mongo.png" class="menu-item-img" alt="Манго-маракуя" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Манго-маракуя">Манго-маракуя</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/berry.png" class="menu-item-img" alt="Жидекті" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Жидекті">Жидекті</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tropical.png" class="menu-item-img" alt="Тропикалық" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Тропикалық">Тропикалық</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/citrus.png" class="menu-item-img" alt="Цитрусты" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Цитрусты">Цитрусты</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/annnas.png" class="menu-item-img" alt="Ананас-апельсин" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Ананас-апельсин">Ананас-апельсин</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/orrange.png" class="menu-item-img" alt="Апельсинді" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Апельсинді">Апельсинді</div>
+              <div class="menu-item-desc" data-menu-desc="0,5 л — 1300 тг · 1 л — 2400 тг">0,5 л — 1300 тг · 1 л — 2400 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="drinksCategory">Drinks</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/kompat.png" class="menu-item-img" alt="Компот" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Компот">Компот</div>
+              <div class="menu-item-desc" data-menu-desc="200 мл — 350 тг · 0,5 л — 500 тг · 1 л — 1000 тг">200 мл — 350 тг · 0,5 л — 500 тг · 1 л — 1000 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/kymyz.png" class="menu-item-img" alt="Қымыз" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қымыз">Қымыз</div>
+              <div class="menu-item-desc" data-menu-desc="200 мл — 650 тг · 0,5 л — 1150 тг · 1 л — 2300 тг">200 мл — 650 тг · 0,5 л — 1150 тг · 1 л — 2300 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ayran.png" class="menu-item-img" alt="Піскен айран" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Піскен айран">Піскен айран</div>
+              <div class="menu-item-desc" data-menu-desc="200 мл — 400 тг · 0,5 л — 600 тг · 1 л — 1000 тг">200 мл — 400 тг · 0,5 л — 600 тг · 1 л — 1000 тг</div>
+            </div>
+            <div class="menu-item-price"></div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="coldDrinks">Cold Drinks</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/coocc.jpg" class="menu-item-img" alt="Coca-Cola, Fanta, Sprite" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Coca-Cola, Fanta, Sprite">Coca-Cola, Fanta, Sprite</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">850 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/coc_can.png" class="menu-item-img" alt="Coca-Cola банка" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Coca-Cola банка">Coca-Cola банка</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">650 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/glass.png" class="menu-item-img" alt="Coca-Cola, Fanta, Sprite шыны" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Coca-Cola, Fanta, Sprite шыны">Coca-Cola, Fanta, Sprite шыны</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">690 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/bon.png" class="menu-item-img" alt="BonAqua газсыз/газды" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="BonAqua газсыз/газды">BonAqua газсыз/газды</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">600 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/bor.png" class="menu-item-img" alt="Borjomi шыны" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Borjomi шыны">Borjomi шыны</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1000 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/piko.png" class="menu-item-img" alt="Piko ассорти" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Piko ассорти">Piko ассорти</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1350 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/natah.png" class="menu-item-img" alt="Натахтари ассорти" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Натахтари ассорти">Натахтари ассорти</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1000 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/bY.png" class="menu-item-img" alt="Балалар шырыны Piko" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Балалар шырыны Piko">Балалар шырыны Piko</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">400 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/fuse.png" class="menu-item-img" alt="Fuse tea" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Fuse tea">Fuse tea</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">800 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="milkshakes">Milkshakes</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/banana.png" class="menu-item-img" alt="Банан" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Банан">Банан</div>
+              <div class="menu-item-desc" data-menu-desc="0,3 л">0,3 л</div>
+            </div>
+            <div class="menu-item-price">1900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/strawberry.png" class="menu-item-img" alt="Құлпынай" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Құлпынай">Құлпынай</div>
+              <div class="menu-item-desc" data-menu-desc="0,3 л">0,3 л</div>
+            </div>
+            <div class="menu-item-price">1900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/chocolate.png" class="menu-item-img" alt="Шоколад" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Шоколад">Шоколад</div>
+              <div class="menu-item-desc" data-menu-desc="0,3 л">0,3 л</div>
+            </div>
+            <div class="menu-item-price">1900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/milk-milkshake.png" class="menu-item-img" alt="Сүтті" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Сүтті">Сүтті</div>
+              <div class="menu-item-desc" data-menu-desc="0,3 л">0,3 л</div>
+            </div>
+            <div class="menu-item-price">1900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/oreo.png" class="menu-item-img" alt="Орео" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Орео">Орео</div>
+              <div class="menu-item-desc" data-menu-desc="0,3 л">0,3 л</div>
+            </div>
+            <div class="menu-item-price">2000 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="smoothies">Smoothies</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/sm1.png" class="menu-item-img" alt="Ананас-апельсин" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Ананас-апельсин">Ананас-апельсин</div>
+              <div class="menu-item-desc" data-menu-desc="0,33 л">0,33 л</div>
+            </div>
+            <div class="menu-item-price">1500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/sm2.png" class="menu-item-img" alt="Құлпынай-банан" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Құлпынай-банан">Құлпынай-банан</div>
+              <div class="menu-item-desc" data-menu-desc="0,33 л">0,33 л</div>
+            </div>
+            <div class="menu-item-price">1500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/sm3.png" class="menu-item-img" alt="Таңқурай-банан" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Таңқурай-банан">Таңқурай-банан</div>
+              <div class="menu-item-desc" data-menu-desc="0,33 л">0,33 л</div>
+            </div>
+            <div class="menu-item-price">1500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/sm4.png" class="menu-item-img" alt="Тропикалық" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Тропикалық">Тропикалық</div>
+              <div class="menu-item-desc" data-menu-desc="0,33 л">0,33 л</div>
+            </div>
+            <div class="menu-item-price">1500 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="iceTea">Ice Tea</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ice1.png" class="menu-item-img" alt="Апельсинді" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Айс-ти Апельсинді">Айс-ти Апельсинді</div>
+              <div class="menu-item-desc" data-menu-desc="0,33 л">0,33 л</div>
+            </div>
+            <div class="menu-item-price">1100 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ice2.png" class="menu-item-img" alt="Жидекті" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Айс-ти Жидекті">Айс-ти Жидекті</div>
+              <div class="menu-item-desc" data-menu-desc="0,33 л">0,33 л</div>
+            </div>
+            <div class="menu-item-price">1100 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ice3.png" class="menu-item-img" alt="Алмалы" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Айс-ти Алмалы">Айс-ти Алмалы</div>
+              <div class="menu-item-desc" data-menu-desc="0,33 л">0,33 л</div>
+            </div>
+            <div class="menu-item-price">1100 тг</div>
+          </div>
+
+          <h3 class="subtitle mt-4" data-translate="cakesForTea">Cakes for Tea</h3>
+          <div class="divider-gold my-2" style="width: 72px"></div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b1.png" class="menu-item-img" alt="Испан чизкейк" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Испан чизкейк">Испан чизкейк</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1690 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b2.png" class="menu-item-img" alt="Орео чизкейк" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Орео чизкейк">Орео чизкейк</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1390 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b3.png" class="menu-item-img" alt="Сүтті қыз" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Сүтті қыз">Сүтті қыз</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1290 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b4.png" class="menu-item-img" alt="Меренга орамы" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Меренга орамы">Меренга орамы</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1090 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b5.png" class="menu-item-img" alt="Карамель чизкейк" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Карамель чизкейк">Карамель чизкейк</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1590 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b6.png" class="menu-item-img" alt="Пломбир" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Пломбир">Пломбир</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1190 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b7.png" class="menu-item-img" alt="Балды бәліш" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Балды бәліш">Балды бәліш</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1190 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b8.png" class="menu-item-img" alt="Наполеон" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Наполеон">Наполеон</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1090 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b9.png" class="menu-item-img" alt="Тары чизкейк" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Тары чизкейк">Тары чизкейк</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1390 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b10.png" class="menu-item-img" alt="Сникерс" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Сникерс">Сникерс</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">1490 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/b11.png" class="menu-item-img" alt="Мадлен печеньесі" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Мадлен печеньесі">Мадлен печеньесі</div>
+              <div class="menu-item-desc" data-menu-desc=""> </div>
+            </div>
+            <div class="menu-item-price">300 тг</div>
+          </div>
+        </div>
+
+        <!-- the salads -->
+        <div
+          class="tab-pane fade"
+          id="menu-desserts"
+          role="tabpanel"
+          aria-labelledby="menu-desserts-tab"
+        >
+          <div class="menu-item-row">
+            <img src="src/assets/food/achu.png" class="menu-item-img" alt="Ачучук" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Ачучук">Ачучук</div>
+              <div class="menu-item-desc" data-menu-desc="Қызанақ, Пияз, Ащы бұрыш">Қызанақ, Пияз, Ащы бұрыш</div>
+            </div>
+            <div class="menu-item-price">990 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/kusik.png" class="menu-item-img" alt="Грек салаты" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Грек салаты">Грек салаты</div>
+              <div class="menu-item-desc" data-menu-desc="Қызанақ, Қияр, Болгар бұрышы, Уыз, Зәйтүн майы, Лимон суы, Салат жапырағы">Қызанақ, Қияр, Болгар бұрышы, Уыз, Зәйтүн майы, Лимон суы, Салат жапырағы</div>
+            </div>
+            <div class="menu-item-price">1500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/freshsal.png" class="menu-item-img" alt="Балғын салат" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Балғын салат">Балғын салат</div>
+              <div class="menu-item-desc" data-menu-desc="Қызанақ, Қияр, Салат жапырақтары">Қызанақ, Қияр, Салат жапырақтары</div>
+            </div>
+            <div class="menu-item-price">1500 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/baklazhan.png" class="menu-item-img" alt="Қытырлак баклажан" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Қытырлак баклажан">Қытырлак баклажан</div>
+              <div class="menu-item-desc" data-menu-desc="Қуырылған баял, Черри, Рукола, Сүзбелі ірімшік, Руколла тәттті қышқыл соусы">Қуырылған баял, Черри, Рукола, Сүзбелі ірімшік, Руколла тәттті қышқыл соусы</div>
+            </div>
+            <div class="menu-item-price">2100 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/tsezar.png" class="menu-item-img" alt="Цезарь" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Цезарь">Цезарь</div>
+              <div class="menu-item-desc" data-menu-desc="Айсберг, Черри қызанағы, Тауық еті, Кептірілген нан, Цезарь тұздығы, Пармезан ірімшігі, Бөдене жұмыртқасы">Айсберг, Черри қызанағы, Тауық еті, Кептірілген нан, Цезарь тұздығы, Пармезан ірімшігі, Бөдене жұмыртқасы</div>
+            </div>
+            <div class="menu-item-price">2200 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/thai.png" class="menu-item-img" alt="Тай салаты" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Тай салаты">Тай салаты</div>
+              <div class="menu-item-desc" data-menu-desc="Жылқы еті, Қияр, Қызанақ, Түрлі түсті болгар бұрышы">Жылқы еті, Қияр, Қызанақ, Түрлі түсті болгар бұрышы</div>
+            </div>
+            <div class="menu-item-price">2350 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ui salat.png" class="menu-item-img" alt="Үй салат" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Үй салат">Үй салат</div>
+              <div class="menu-item-desc" data-menu-desc="Асқабақ, Қызылша, Микс салат жапырақтары, Рукола, Сүзбелі ірімшік, Анар, Пармезан ірімшігі, Зәйтүн майы">Асқабақ, Қызылша, Микс салат жапырақтары, Рукола, Сүзбелі ірімшік, Анар, Пармезан ірімшігі, Зәйтүн майы</div>
+            </div>
+            <div class="menu-item-price">2650 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/vitaman.png" class="menu-item-img" alt="Витамин салат" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Витамин салат">Витамин салат</div>
+              <div class="menu-item-desc" data-menu-desc="Алмұрт, Черри қызанағы, Микс салат жапырақтары, Рукола, Фетакса, Зәйтүн майы">Алмұрт, Черри қызанағы, Микс салат жапырақтары, Рукола, Фетакса, Зәйтүн майы</div>
+            </div>
+            <div class="menu-item-price">2150 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/kapusik.png" class="menu-item-img" alt="Тұздалған капуста" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Тұздалған капуста">Тұздалған капуста</div>
+              <div class="menu-item-desc" data-menu-desc="Тұздалған капуста, Қияр">Тұздалған капуста, Қияр</div>
+            </div>
+            <div class="menu-item-price">990 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/shipaslat.png" class="menu-item-img" alt="Шипа салат" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Шипа салат">Шипа салат</div>
+              <div class="menu-item-desc" data-menu-desc="Алмұрт, Жылқы еті, Тауық еті, Пармезан ірімшігі, Горох, Фри, Карнишон">Алмұрт, Жылқы еті, Тауық еті, Пармезан ірімшігі, Горох, Фри, Карнишон</div>
+            </div>
+            <div class="menu-item-price">2650 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/hanshaym.png" class="menu-item-img" alt="Ханшайым салат" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Ханшайым салат">Ханшайым салат</div>
+              <div class="menu-item-desc" data-menu-desc="Ананас, Жылқы еті, Қияр, Мейіз, Салат жапырағы, Пармезан ірімшігі, Тауық еті, Түрлі түсті болгар бұрышы">Ананас, Жылқы еті, Қияр, Мейіз, Салат жапырағы, Пармезан ірімшігі, Тауық еті, Түрлі түсті болгар бұрышы</div>
+            </div>
+            <div class="menu-item-price">2190 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/hanzada.png" class="menu-item-img" alt="Ханзада салаты" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Ханзада салаты">Ханзада салаты</div>
+              <div class="menu-item-desc" data-menu-desc="Картоп, Сәбіз, Жылқы еті, Қияр, Жұмыртқа">Картоп, Сәбіз, Жылқы еті, Қияр, Жұмыртқа</div>
+            </div>
+            <div class="menu-item-price">2100 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/ving.png" class="menu-item-img" alt="Винегрет" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Винегрет">Винегрет</div>
+              <div class="menu-item-desc" data-menu-desc="Қызылша, Картоп, Горох, Тұздалған қияр, Тұздалған орамжапырақ, Сәбіз, Зәйтүн майы">Қызылша, Картоп, Горох, Тұздалған қияр, Тұздалған орамжапырақ, Сәбіз, Зәйтүн майы</div>
+            </div>
+            <div class="menu-item-price">1900 тг</div>
+          </div>
+          <div class="menu-item-row">
+            <img src="src/assets/food/brokol.png" class="menu-item-img" alt="Брокколи салат" />
+            <div class="flex-grow-1">
+              <div class="menu-item-title" data-menu-item="Брокколи салат">Брокколи салат</div>
+              <div class="menu-item-desc" data-menu-desc="Брокколи, Жүгері, Черри қызанағы, Бөдене жұмыртқасы, Карнишон, Қияр">Брокколи, Жүгері, Черри қызанағы, Бөдене жұмыртқасы, Карнишон, Қияр</div>
+            </div>
+            <div class="menu-item-price">2300 тг</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Multi-language and page transitions -->
+    <script src="app.js"></script>
+  </body>
+</html>
